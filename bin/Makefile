@@ -1,0 +1,4 @@
+EXEC = ExplicitClient
+
+run:
+	./$(EXEC)

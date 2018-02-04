@@ -19,7 +19,9 @@ int main()
   
   // using sudo dolphin, copy libComponent.so into usr/lib
 
-  void* handle = dlopen("libComponent.so", RTLD_LAZY);
+  void* handle = dlopen("./libComponent.so", RTLD_LAZY); 
+  // !!dlopen path is ComponentExplicitClient Makefile's(directory of your current bash), not current bin
+  // or cd into bin/ and run local makefile
   if (!handle)
   {
     std::cout << "\n  failed to load libComponent.so\n\n";

@@ -1,9 +1,8 @@
-TARGET = Component.so
+TARGET = libComponent.so
 OBJS = Component.o
 SRC = Component.cpp
 
-BINDIR = ./bin
-LIBDIR = ./lib
+BINDIR = ../bin
 
 CXX = g++-5
 CXXFLAGS = -g -Wall -std=c++11 -fPIC
@@ -11,15 +10,15 @@ CXXFLAGS = -g -Wall -std=c++11 -fPIC
 .PHONY : clean all
 
 $(TARGET) : $(OBJS)
-	mkdir -p $(LIBDIR)
-	$(CXX) -shared -o $(LIBDIR)/$@ $^
+	mkdir -p $(BINDIR)
+	$(CXX) -shared -o $(BINDIR)/$@ $^
 
 $.o : $.cpp
 	$(CXX) $(CXXFLAGS) -c $<
 
 clean : 
-	rm -rf $(BINDIR) $(LIBDIR) $(OBJS) $(TARGET)
+	rm -rf $(BINDIR)/$(TARGET) $(OBJS) $(TARGET)
 
 all : 
-	mkdir -p $(LIBDIR)
-	$(CXX) $(CXXFLAGS) -shared -o $(LIBDIR)/$(TARGET) $(SRC)
+	mkdir -p $(BINDIR)
+	$(CXX) $(CXXFLAGS) -shared -o $(BINDIR)/$(TARGET) $(SRC)
