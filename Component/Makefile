@@ -2,7 +2,7 @@ TARGET = libComponent.so
 OBJS = Component.o
 SRC = Component.cpp
 
-BINDIR = ../bin
+BINDIR = ../Debug
 
 CXX = g++-5
 CXXFLAGS = -g -Wall -std=c++11 -fPIC
